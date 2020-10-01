@@ -32,5 +32,38 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-  render();
+  const addNewTask = (newTaskContent) => {
+    tasks.push({ content: newTaskContent });
+
+    render();
+  };
+
+  const afterFormSubmit = (newTask) => {
+    const newTaskContent = newTask.value.trim();
+
+    newTask.focus();
+    newTask.value = "";
+
+    if (newTaskContent === "") return;
+
+    addNewTask(newTaskContent);
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newTask = document.querySelector(".js-newTask");
+
+    afterFormSubmit(newTask);
+  };
+
+  const init = () => {
+    const formElement = document.querySelector(".js-form");
+
+    formElement.addEventListener("submit", onFormSubmit);
+
+    render();
+  };
+
+  init();
 }
