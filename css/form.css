@@ -1,0 +1,17 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+}
+
+.form__input {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form__button {
+  border: none;
+  background: teal;
+  color: white;
+  padding: 10px;
+}
